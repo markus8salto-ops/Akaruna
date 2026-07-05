@@ -1,3 +1,127 @@
+
+https://github.com/markus8salto-ops/Akaruna/blob/dcd5483a0098ed200639e8d41cc923f83c52d623/IRH09491.jpg
+that is for the outdoor minimalist
+https://github.com/markus8salto-ops/Akaruna/blob/dcd5483a0098ed200639e8d41cc923f83c52d623/Copy%20of%20VNJ03802.jpg
+that is for modern ballroom
+https://github.com/markus8salto-ops/Akaruna/blob/a284d9313e34ca6941be40825e67bb4137befc63/Untitled%20design.mp4
+this is for idk you figure out haha
+https://github.com/markus8salto-ops/Akaruna/blob/a284d9313e34ca6941be40825e67bb4137befc63/KVN_0730.jpeg
+this is for engagement
+https://github.com/markus8salto-ops/Akaruna/blob/c4fa4c18201b3d50342918e7b586c9f0e32738fd/DSC00685.jpg
+this is for traditional contemporer
+
+Show more
+
+Pinpointed gallery block boundaries within codebase structure
+Pinpointed gallery block boundaries within codebase structure
+Now let me update the gallery with your real photos. Since one is a video (not an image), I'll set that card up to autoplay a muted preview loop instead — still clickable like the others.
+
+
+Swap placeholder inspiration images with real GitHub raw links and remaining two placeholders
+Swap placeholder inspiration images with real GitHub raw links and remaining two placeholders
+Now let me make sure the video fills its card the same way the images do:
+
+
+Edited 2 files
+Edited 2 files
+All done. Here's what changed:
+
+Card	Content
+Outdoor Minimalist	IRH09491.jpg
+Modern Ballroom	Copy of VNJ03802.jpg
+Engagement	KVN_0730.jpeg
+Traditional Contemporary	DSC00685.jpg
+Our Work	your video, autoplaying muted on loop
+Bold Contemporary	still a placeholder — let me know if you have a photo for this one
+
+Presented file
+Presented file
+You'll want to re-upload this updated file to the same spot in your GitHub repo (upload with the same filename, akaruna-client-intake.html, and it'll overwrite the old version). Once that's done and your subdomain finishes its DNS check, everything should be live and working end to end.
+
+
+Akaruna client intake
+Code · HTML 
+the our work change into bold contemporary.
+the price range change into 
+40-60 mil
+60-80
+80-100
+100 plus
+engagement
+undiceded
+
+
+Ran a command, edited a file
+Ran a command, edited a file
+Now let's rename the video card to "Bold Contemporary" and drop the now-duplicate placeholder card:
+
+
+Viewed a file, edited a file
+Viewed a file, edited a file
+Done — both changes are in:
+
+Gallery: now 5 cards — Outdoor Minimalist, Modern Ballroom, Engagement, Traditional Contemporary, and Bold Contemporary (your video, autoplaying muted).
+Budget options: 40–60 jt, 60–80 jt, 80–100 jt, 100 jt+, Engagement, Undecided.
+
+Presented file
+Presented file
+Re-upload this to your GitHub repo with the same filename to overwrite the old version, and you're good to go.
+
+
+Akaruna client intake
+Code · HTML 
+ok, put engagement and the very end please. and make like a small box where u can tick every point.
+
+last, help me edit the github
+
+
+Viewed 2 files, ran a command
+Viewed 2 files, ran a command
+Now let's convert this to tick-box checkboxes and reorder Engagement to the end:
+
+
+Restyle budget options as checkbox rows with a small tick box
+Restyle budget options as checkbox rows with a small tick box
+Now update the markup to checkboxes, move Engagement to the end, and set up a hidden field to collect the ticked ones:
+
+
+Convert budget radios to checkboxes and reorder Engagement to last
+Convert budget radios to checkboxes and reorder Engagement to last
+Now let's wire the checkboxes to the hidden field, and add a submit safeguard so at least one is ticked:
+
+
+Edited 2 files
+Edited 2 files
+Both changes are in — Engagement is now last, and budget is a tick-box list where couples can select multiple ranges.
+
+
+Presented file
+Presented file
+Now, to get this updated version onto GitHub — you're just replacing the file that's already there. Here's the whole flow:
+
+Go to your Akaruna repo on GitHub.
+Click on the existing akaruna-client-intake.html file (click its filename to open it).
+Click the pencil icon (Edit this file) in the top-right of the file view.
+Select all the text inside (Ctrl+A) and delete it.
+Open the file I just gave you, copy all of its content, and paste it into that GitHub editor.
+Scroll down, and under "Commit changes," make sure "Commit directly to the main branch" is selected.
+Click Commit changes.
+That's it — GitHub Pages will automatically rebuild with the new version within a minute or two, no need to touch the Pages settings again.
+
+Want me to walk you through each of those steps live as you go, like before?
+
+
+Akaruna client intake
+Code · HTML 
+
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+
+
+Akaruna client intake · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,23 +238,24 @@
     border-color:var(--gold);
   }
   textarea{resize:vertical;min-height:90px;}
-
+ 
   .budget-options{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
   }
-  @media (max-width:560px){.budget-options{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.budget-options{grid-template-columns:1fr;}}
   .budget-options input{display:none;}
   .budget-options label{
     display:flex;
     align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:14px 8px;
+    gap:10px;
+    justify-content:flex-start;
+    text-align:left;
+    padding:13px 14px;
     border:1px solid var(--line);
     background:var(--white);
-    font-size:13px;
+    font-size:14px;
     text-transform:none;
     letter-spacing:0.02em;
     color:var(--ink);
@@ -138,12 +263,29 @@
     border-radius:2px;
     transition:all .2s ease;
   }
-  .budget-options input:checked + label{
-    background:var(--ink);
-    color:var(--cream);
-    border-color:var(--ink);
+  .budget-options label::before{
+    content:"";
+    width:16px;
+    height:16px;
+    flex-shrink:0;
+    border:1.5px solid var(--ink-soft);
+    border-radius:3px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    color:#fff;
+    transition:all .2s ease;
   }
-
+  .budget-options input:checked + label{
+    border-color:var(--gold);
+  }
+  .budget-options input:checked + label::before{
+    content:"✓";
+    background:var(--gold);
+    border-color:var(--gold);
+  }
+ 
   .gallery-intro{
     color:var(--ink-soft);
     font-size:14px;
@@ -163,7 +305,7 @@
     aspect-ratio:3/4;
     border:2px solid transparent;
   }
-  .style-card img{
+  .style-card img, .style-card video{
     width:100%;
     height:100%;
     object-fit:cover;
@@ -193,7 +335,7 @@
     padding:4px 8px;
     border-radius:20px;
   }
-
+ 
   .submit-btn{
     width:100%;
     margin-top:48px;
@@ -211,14 +353,14 @@
   }
   .submit-btn:hover{background:var(--gold);}
   .submit-btn:disabled{opacity:0.6;cursor:default;}
-
+ 
   .note{
     font-size:12px;
     color:var(--ink-soft);
     text-align:center;
     margin-top:14px;
   }
-
+ 
   .success-screen{
     display:none;
     text-align:center;
@@ -237,17 +379,17 @@
 </style>
 </head>
 <body>
-
+ 
 <div id="formScreen">
   <header class="hero">
     <div class="eyebrow">Akaruna Design</div>
     <h1>Tell us about your day</h1>
     <p>A few details help us understand your vision before we speak on WhatsApp or Instagram.</p>
   </header>
-
+ 
   <div class="wrap">
     <form id="intakeForm">
-
+ 
       <section class="block">
         <div class="block-label"><span class="num">I.</span><h2>The couple</h2></div>
         <div class="field-row">
@@ -261,7 +403,7 @@
           </div>
         </div>
       </section>
-
+ 
       <section class="block">
         <div class="block-label"><span class="num">II.</span><h2>The occasion</h2></div>
         <div class="field-row">
@@ -275,19 +417,20 @@
           </div>
         </div>
       </section>
-
+ 
       <section class="block">
         <div class="block-label"><span class="num">III.</span><h2>Budget expectation</h2></div>
         <div class="budget-options" id="budgetOptions">
-          <input type="radio" id="b1" name="budget" value="< 50 juta" required><label for="b1">&lt; 50 jt</label>
-          <input type="radio" id="b2" name="budget" value="50–100 juta"><label for="b2">50–100 jt</label>
-          <input type="radio" id="b3" name="budget" value="100–250 juta"><label for="b3">100–250 jt</label>
-          <input type="radio" id="b4" name="budget" value="250–500 juta"><label for="b4">250–500 jt</label>
-          <input type="radio" id="b5" name="budget" value="500 juta+"><label for="b5">500 jt+</label>
-          <input type="radio" id="b6" name="budget" value="Still deciding"><label for="b6">Still deciding</label>
+          <input type="checkbox" id="b1" data-value="40–60 juta"><label for="b1">40–60 jt</label>
+          <input type="checkbox" id="b2" data-value="60–80 juta"><label for="b2">60–80 jt</label>
+          <input type="checkbox" id="b3" data-value="80–100 juta"><label for="b3">80–100 jt</label>
+          <input type="checkbox" id="b4" data-value="100 juta+"><label for="b4">100 jt+</label>
+          <input type="checkbox" id="b5" data-value="Undecided"><label for="b5">Undecided</label>
+          <input type="checkbox" id="b6" data-value="Engagement"><label for="b6">Engagement</label>
         </div>
+        <input type="hidden" name="budget" id="budgetInput">
       </section>
-
+ 
       <section class="block">
         <div class="block-label"><span class="num">IV.</span><h2>Wedding inspiration</h2></div>
         <p class="gallery-intro">Tap the styles from our past work that feel closest to your vision. Pick as many as you like.</p>
@@ -297,34 +440,30 @@
             from the Akaruna repo (markus8salto-ops/Akaruna), same pattern
             you're already using on the pitch pages.
           -->
-          <div class="style-card" data-style="Minimalist Garden">
-            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/minimalist-garden.jpg" alt="Minimalist Garden">
-            <div class="tag">Minimalist Garden</div>
+          <div class="style-card" data-style="Outdoor Minimalist">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/dcd5483a0098ed200639e8d41cc923f83c52d623/IRH09491.jpg" alt="Outdoor Minimalist">
+            <div class="tag">Outdoor Minimalist</div>
           </div>
           <div class="style-card" data-style="Modern Ballroom">
-            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/modern-ballroom.jpg" alt="Modern Ballroom">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/dcd5483a0098ed200639e8d41cc923f83c52d623/Copy%20of%20VNJ03802.jpg" alt="Modern Ballroom">
             <div class="tag">Modern Ballroom</div>
           </div>
-          <div class="style-card" data-style="Rustic Outdoor">
-            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/rustic-outdoor.jpg" alt="Rustic Outdoor">
-            <div class="tag">Rustic Outdoor</div>
+          <div class="style-card" data-style="Engagement">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/a284d9313e34ca6941be40825e67bb4137befc63/KVN_0730.jpeg" alt="Engagement">
+            <div class="tag">Engagement</div>
           </div>
-          <div class="style-card" data-style="Traditional Elegant">
-            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/traditional-elegant.jpg" alt="Traditional Elegant">
-            <div class="tag">Traditional Elegant</div>
-          </div>
-          <div class="style-card" data-style="Romantic Pastel">
-            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/romantic-pastel.jpg" alt="Romantic Pastel">
-            <div class="tag">Romantic Pastel</div>
+          <div class="style-card" data-style="Traditional Contemporary">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/c4fa4c18201b3d50342918e7b586c9f0e32738fd/DSC00685.jpg" alt="Traditional Contemporary">
+            <div class="tag">Traditional Contemporary</div>
           </div>
           <div class="style-card" data-style="Bold Contemporary">
-            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/bold-contemporary.jpg" alt="Bold Contemporary">
+            <video src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/a284d9313e34ca6941be40825e67bb4137befc63/Untitled%20design.mp4" autoplay muted loop playsinline></video>
             <div class="tag">Bold Contemporary</div>
           </div>
         </div>
         <input type="hidden" name="inspiration" id="inspirationInput">
       </section>
-
+ 
       <section class="block">
         <div class="block-label"><span class="num">V.</span><h2>Reaching you</h2></div>
         <div class="field-row">
@@ -338,25 +477,34 @@
           </div>
         </div>
       </section>
-
+ 
       <button type="submit" class="submit-btn" id="submitBtn">Share these details</button>
       <p class="note">We'll follow up on WhatsApp or Instagram within 1–2 days.</p>
     </form>
   </div>
 </div>
-
+ 
 <div class="success-screen" id="successScreen">
   <div class="eyebrow">Akaruna Design</div>
   <h2>Thank you</h2>
   <p>We've received your details and will reach out on WhatsApp or Instagram shortly to talk through your day.</p>
 </div>
-
+ 
 <script>
   // ── Configuration ──────────────────────────────────────────────
   // Paste your deployed Google Apps Script Web App URL here.
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQo5gvo8p3c1gFWXGemwx-BXsCV-9lsA7K9M_puisJ0uJk75rPHMXuS6IlXwaUsVud/exec";
   // ───────────────────────────────────────────────────────────────
-
+ 
+  const budgetInput = document.getElementById('budgetInput');
+  document.querySelectorAll('#budgetOptions input[type=checkbox]').forEach(box => {
+    box.addEventListener('change', () => {
+      const checked = Array.from(document.querySelectorAll('#budgetOptions input:checked'))
+        .map(b => b.dataset.value);
+      budgetInput.value = checked.join(', ');
+    });
+  });
+ 
   const selectedStyles = new Set();
   document.querySelectorAll('.style-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -371,17 +519,23 @@
       document.getElementById('inspirationInput').value = Array.from(selectedStyles).join(', ');
     });
   });
-
+ 
   const form = document.getElementById('intakeForm');
   const submitBtn = document.getElementById('submitBtn');
-
+ 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+ 
+    if (!budgetInput.value) {
+      alert('Please tick at least one budget range.');
+      return;
+    }
+ 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
-
+ 
     const formData = new FormData(form);
-
+ 
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
@@ -397,6 +551,7 @@
     }
   });
 </script>
-
+ 
 </body>
 </html>
+ 
