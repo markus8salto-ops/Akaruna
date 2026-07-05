@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akaruna Design — Tell Us About Your Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EF;
+    --cream-deep:#F1E9DC;
+    --ink:#2B2620;
+    --ink-soft:#6B6259;
+    --gold:#B08D57;
+    --rose:#D9BFB4;
+    --line:#E3D9C8;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    margin:0;
+    color:var(--ink);
+  }
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 24px 80px;
+  }
+  header.hero{
+    text-align:center;
+    padding:80px 24px 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'Jost',sans-serif;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+  header.hero h1{
+    font-size:clamp(32px,5vw,48px);
+    font-style:italic;
+    line-height:1.2;
+  }
+  header.hero p{
+    max-width:480px;
+    margin:18px auto 0;
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  section.block{
+    margin-top:56px;
+  }
+  .block-label{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:24px;
+  }
+  .block-label .num{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--gold);
+  }
+  .block-label h2{
+    font-size:24px;
+  }
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  @media (max-width:560px){
+    .field-row{grid-template-columns:1fr;}
+  }
+  .field{
+    margin-bottom:20px;
+  }
+  label{
+    display:block;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  input[type=text], input[type=date], input[type=tel], textarea, select{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid var(--line);
+    background:var(--white);
+    border-radius:2px;
+    font-family:'Jost',sans-serif;
+    font-size:15px;
+    color:var(--ink);
+    outline:none;
+    transition:border-color .2s ease;
+  }
+  input:focus, textarea:focus, select:focus{
+    border-color:var(--gold);
+  }
+  textarea{resize:vertical;min-height:90px;}
+
+  .budget-options{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+  }
+  @media (max-width:560px){.budget-options{grid-template-columns:1fr 1fr;}}
+  .budget-options input{display:none;}
+  .budget-options label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:14px 8px;
+    border:1px solid var(--line);
+    background:var(--white);
+    font-size:13px;
+    text-transform:none;
+    letter-spacing:0.02em;
+    color:var(--ink);
+    cursor:pointer;
+    border-radius:2px;
+    transition:all .2s ease;
+  }
+  .budget-options input:checked + label{
+    background:var(--ink);
+    color:var(--cream);
+    border-color:var(--ink);
+  }
+
+  .gallery-intro{
+    color:var(--ink-soft);
+    font-size:14px;
+    margin-bottom:18px;
+  }
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  @media (max-width:560px){.gallery{grid-template-columns:1fr 1fr;}}
+  .style-card{
+    position:relative;
+    cursor:pointer;
+    border-radius:2px;
+    overflow:hidden;
+    aspect-ratio:3/4;
+    border:2px solid transparent;
+  }
+  .style-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .style-card .tag{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:10px 10px 8px;
+    background:linear-gradient(0deg, rgba(0,0,0,0.55), transparent);
+    color:#fff;
+    font-size:12px;
+    letter-spacing:0.04em;
+  }
+  .style-card.selected{
+    border-color:var(--gold);
+  }
+  .style-card.selected::after{
+    content:"✓ selected";
+    position:absolute;
+    top:8px; right:8px;
+    background:var(--gold);
+    color:#fff;
+    font-size:10px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:4px 8px;
+    border-radius:20px;
+  }
+
+  .submit-btn{
+    width:100%;
+    margin-top:48px;
+    padding:18px;
+    background:var(--ink);
+    color:var(--cream);
+    border:none;
+    font-family:'Jost',sans-serif;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-size:13px;
+    cursor:pointer;
+    border-radius:2px;
+    transition:background .2s ease;
+  }
+  .submit-btn:hover{background:var(--gold);}
+  .submit-btn:disabled{opacity:0.6;cursor:default;}
+
+  .note{
+    font-size:12px;
+    color:var(--ink-soft);
+    text-align:center;
+    margin-top:14px;
+  }
+
+  .success-screen{
+    display:none;
+    text-align:center;
+    padding:100px 24px;
+  }
+  .success-screen h2{
+    font-size:34px;
+    font-style:italic;
+    margin-bottom:14px;
+  }
+  .success-screen p{
+    color:var(--ink-soft);
+    max-width:420px;
+    margin:0 auto;
+  }
+</style>
+</head>
+<body>
+
+<div id="formScreen">
+  <header class="hero">
+    <div class="eyebrow">Akaruna Design</div>
+    <h1>Tell us about your day</h1>
+    <p>A few details help us understand your vision before we speak on WhatsApp or Instagram.</p>
+  </header>
+
+  <div class="wrap">
+    <form id="intakeForm">
+
+      <section class="block">
+        <div class="block-label"><span class="num">I.</span><h2>The couple</h2></div>
+        <div class="field-row">
+          <div class="field">
+            <label for="brideName">Bride's name</label>
+            <input type="text" id="brideName" name="brideName" required>
+          </div>
+          <div class="field">
+            <label for="groomName">Groom's name</label>
+            <input type="text" id="groomName" name="groomName" required>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="block-label"><span class="num">II.</span><h2>The occasion</h2></div>
+        <div class="field-row">
+          <div class="field">
+            <label for="venue">Wedding venue</label>
+            <input type="text" id="venue" name="venue" placeholder="Name or city, if not yet confirmed" required>
+          </div>
+          <div class="field">
+            <label for="weddingDate">Wedding date</label>
+            <input type="date" id="weddingDate" name="weddingDate" required>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="block-label"><span class="num">III.</span><h2>Budget expectation</h2></div>
+        <div class="budget-options" id="budgetOptions">
+          <input type="radio" id="b1" name="budget" value="< 50 juta" required><label for="b1">&lt; 50 jt</label>
+          <input type="radio" id="b2" name="budget" value="50–100 juta"><label for="b2">50–100 jt</label>
+          <input type="radio" id="b3" name="budget" value="100–250 juta"><label for="b3">100–250 jt</label>
+          <input type="radio" id="b4" name="budget" value="250–500 juta"><label for="b4">250–500 jt</label>
+          <input type="radio" id="b5" name="budget" value="500 juta+"><label for="b5">500 jt+</label>
+          <input type="radio" id="b6" name="budget" value="Still deciding"><label for="b6">Still deciding</label>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="block-label"><span class="num">IV.</span><h2>Wedding inspiration</h2></div>
+        <p class="gallery-intro">Tap the styles from our past work that feel closest to your vision. Pick as many as you like.</p>
+        <div class="gallery" id="gallery">
+          <!--
+            Replace each src below with your GitHub raw commit-hash links
+            from the Akaruna repo (markus8salto-ops/Akaruna), same pattern
+            you're already using on the pitch pages.
+          -->
+          <div class="style-card" data-style="Minimalist Garden">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/minimalist-garden.jpg" alt="Minimalist Garden">
+            <div class="tag">Minimalist Garden</div>
+          </div>
+          <div class="style-card" data-style="Modern Ballroom">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/modern-ballroom.jpg" alt="Modern Ballroom">
+            <div class="tag">Modern Ballroom</div>
+          </div>
+          <div class="style-card" data-style="Rustic Outdoor">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/rustic-outdoor.jpg" alt="Rustic Outdoor">
+            <div class="tag">Rustic Outdoor</div>
+          </div>
+          <div class="style-card" data-style="Traditional Elegant">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/traditional-elegant.jpg" alt="Traditional Elegant">
+            <div class="tag">Traditional Elegant</div>
+          </div>
+          <div class="style-card" data-style="Romantic Pastel">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/romantic-pastel.jpg" alt="Romantic Pastel">
+            <div class="tag">Romantic Pastel</div>
+          </div>
+          <div class="style-card" data-style="Bold Contemporary">
+            <img src="https://raw.githubusercontent.com/markus8salto-ops/Akaruna/main/inspiration/bold-contemporary.jpg" alt="Bold Contemporary">
+            <div class="tag">Bold Contemporary</div>
+          </div>
+        </div>
+        <input type="hidden" name="inspiration" id="inspirationInput">
+      </section>
+
+      <section class="block">
+        <div class="block-label"><span class="num">V.</span><h2>Reaching you</h2></div>
+        <div class="field-row">
+          <div class="field">
+            <label for="contact">WhatsApp number or Instagram handle</label>
+            <input type="text" id="contact" name="contact" placeholder="e.g. 08123456789 or @yourhandle" required>
+          </div>
+          <div class="field">
+            <label for="message">Anything else we should know</label>
+            <input type="text" id="message" name="message" placeholder="Optional">
+          </div>
+        </div>
+      </section>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Share these details</button>
+      <p class="note">We'll follow up on WhatsApp or Instagram within 1–2 days.</p>
+    </form>
+  </div>
+</div>
+
+<div class="success-screen" id="successScreen">
+  <div class="eyebrow">Akaruna Design</div>
+  <h2>Thank you</h2>
+  <p>We've received your details and will reach out on WhatsApp or Instagram shortly to talk through your day.</p>
+</div>
+
+<script>
+  // ── Configuration ──────────────────────────────────────────────
+  // Paste your deployed Google Apps Script Web App URL here.
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQo5gvo8p3c1gFWXGemwx-BXsCV-9lsA7K9M_puisJ0uJk75rPHMXuS6IlXwaUsVud/exec";
+  // ───────────────────────────────────────────────────────────────
+
+  const selectedStyles = new Set();
+  document.querySelectorAll('.style-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const style = card.dataset.style;
+      if (selectedStyles.has(style)) {
+        selectedStyles.delete(style);
+        card.classList.remove('selected');
+      } else {
+        selectedStyles.add(style);
+        card.classList.add('selected');
+      }
+      document.getElementById('inspirationInput').value = Array.from(selectedStyles).join(', ');
+    });
+  });
+
+  const form = document.getElementById('intakeForm');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const formData = new FormData(form);
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      });
+      document.getElementById('formScreen').style.display = 'none';
+      document.getElementById('successScreen').style.display = 'block';
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Share these details';
+      alert('Something went wrong sending your details. Please try again, or reach us directly on Instagram/WhatsApp.');
+    }
+  });
+</script>
+
+</body>
+</html>
