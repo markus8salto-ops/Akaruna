@@ -1,127 +1,3 @@
-
-https://github.com/markus8salto-ops/Akaruna/blob/dcd5483a0098ed200639e8d41cc923f83c52d623/IRH09491.jpg
-that is for the outdoor minimalist
-https://github.com/markus8salto-ops/Akaruna/blob/dcd5483a0098ed200639e8d41cc923f83c52d623/Copy%20of%20VNJ03802.jpg
-that is for modern ballroom
-https://github.com/markus8salto-ops/Akaruna/blob/a284d9313e34ca6941be40825e67bb4137befc63/Untitled%20design.mp4
-this is for idk you figure out haha
-https://github.com/markus8salto-ops/Akaruna/blob/a284d9313e34ca6941be40825e67bb4137befc63/KVN_0730.jpeg
-this is for engagement
-https://github.com/markus8salto-ops/Akaruna/blob/c4fa4c18201b3d50342918e7b586c9f0e32738fd/DSC00685.jpg
-this is for traditional contemporer
-
-Show more
-
-Pinpointed gallery block boundaries within codebase structure
-Pinpointed gallery block boundaries within codebase structure
-Now let me update the gallery with your real photos. Since one is a video (not an image), I'll set that card up to autoplay a muted preview loop instead — still clickable like the others.
-
-
-Swap placeholder inspiration images with real GitHub raw links and remaining two placeholders
-Swap placeholder inspiration images with real GitHub raw links and remaining two placeholders
-Now let me make sure the video fills its card the same way the images do:
-
-
-Edited 2 files
-Edited 2 files
-All done. Here's what changed:
-
-Card	Content
-Outdoor Minimalist	IRH09491.jpg
-Modern Ballroom	Copy of VNJ03802.jpg
-Engagement	KVN_0730.jpeg
-Traditional Contemporary	DSC00685.jpg
-Our Work	your video, autoplaying muted on loop
-Bold Contemporary	still a placeholder — let me know if you have a photo for this one
-
-Presented file
-Presented file
-You'll want to re-upload this updated file to the same spot in your GitHub repo (upload with the same filename, akaruna-client-intake.html, and it'll overwrite the old version). Once that's done and your subdomain finishes its DNS check, everything should be live and working end to end.
-
-
-Akaruna client intake
-Code · HTML 
-the our work change into bold contemporary.
-the price range change into 
-40-60 mil
-60-80
-80-100
-100 plus
-engagement
-undiceded
-
-
-Ran a command, edited a file
-Ran a command, edited a file
-Now let's rename the video card to "Bold Contemporary" and drop the now-duplicate placeholder card:
-
-
-Viewed a file, edited a file
-Viewed a file, edited a file
-Done — both changes are in:
-
-Gallery: now 5 cards — Outdoor Minimalist, Modern Ballroom, Engagement, Traditional Contemporary, and Bold Contemporary (your video, autoplaying muted).
-Budget options: 40–60 jt, 60–80 jt, 80–100 jt, 100 jt+, Engagement, Undecided.
-
-Presented file
-Presented file
-Re-upload this to your GitHub repo with the same filename to overwrite the old version, and you're good to go.
-
-
-Akaruna client intake
-Code · HTML 
-ok, put engagement and the very end please. and make like a small box where u can tick every point.
-
-last, help me edit the github
-
-
-Viewed 2 files, ran a command
-Viewed 2 files, ran a command
-Now let's convert this to tick-box checkboxes and reorder Engagement to the end:
-
-
-Restyle budget options as checkbox rows with a small tick box
-Restyle budget options as checkbox rows with a small tick box
-Now update the markup to checkboxes, move Engagement to the end, and set up a hidden field to collect the ticked ones:
-
-
-Convert budget radios to checkboxes and reorder Engagement to last
-Convert budget radios to checkboxes and reorder Engagement to last
-Now let's wire the checkboxes to the hidden field, and add a submit safeguard so at least one is ticked:
-
-
-Edited 2 files
-Edited 2 files
-Both changes are in — Engagement is now last, and budget is a tick-box list where couples can select multiple ranges.
-
-
-Presented file
-Presented file
-Now, to get this updated version onto GitHub — you're just replacing the file that's already there. Here's the whole flow:
-
-Go to your Akaruna repo on GitHub.
-Click on the existing akaruna-client-intake.html file (click its filename to open it).
-Click the pencil icon (Edit this file) in the top-right of the file view.
-Select all the text inside (Ctrl+A) and delete it.
-Open the file I just gave you, copy all of its content, and paste it into that GitHub editor.
-Scroll down, and under "Commit changes," make sure "Commit directly to the main branch" is selected.
-Click Commit changes.
-That's it — GitHub Pages will automatically rebuild with the new version within a minute or two, no need to touch the Pages settings again.
-
-Want me to walk you through each of those steps live as you go, like before?
-
-
-Akaruna client intake
-Code · HTML 
-
-
-
-
-
-Claude is AI and can make mistakes. Please double-check responses.
-
-
-Akaruna client intake · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -238,7 +114,7 @@ Akaruna client intake · HTML
     border-color:var(--gold);
   }
   textarea{resize:vertical;min-height:90px;}
- 
+
   .budget-options{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -285,7 +161,7 @@ Akaruna client intake · HTML
     background:var(--gold);
     border-color:var(--gold);
   }
- 
+
   .gallery-intro{
     color:var(--ink-soft);
     font-size:14px;
@@ -335,7 +211,7 @@ Akaruna client intake · HTML
     padding:4px 8px;
     border-radius:20px;
   }
- 
+
   .submit-btn{
     width:100%;
     margin-top:48px;
@@ -353,14 +229,14 @@ Akaruna client intake · HTML
   }
   .submit-btn:hover{background:var(--gold);}
   .submit-btn:disabled{opacity:0.6;cursor:default;}
- 
+
   .note{
     font-size:12px;
     color:var(--ink-soft);
     text-align:center;
     margin-top:14px;
   }
- 
+
   .success-screen{
     display:none;
     text-align:center;
@@ -379,17 +255,17 @@ Akaruna client intake · HTML
 </style>
 </head>
 <body>
- 
+
 <div id="formScreen">
   <header class="hero">
     <div class="eyebrow">Akaruna Design</div>
     <h1>Tell us about your day</h1>
     <p>A few details help us understand your vision before we speak on WhatsApp or Instagram.</p>
   </header>
- 
+
   <div class="wrap">
     <form id="intakeForm">
- 
+
       <section class="block">
         <div class="block-label"><span class="num">I.</span><h2>The couple</h2></div>
         <div class="field-row">
@@ -403,7 +279,7 @@ Akaruna client intake · HTML
           </div>
         </div>
       </section>
- 
+
       <section class="block">
         <div class="block-label"><span class="num">II.</span><h2>The occasion</h2></div>
         <div class="field-row">
@@ -417,7 +293,7 @@ Akaruna client intake · HTML
           </div>
         </div>
       </section>
- 
+
       <section class="block">
         <div class="block-label"><span class="num">III.</span><h2>Budget expectation</h2></div>
         <div class="budget-options" id="budgetOptions">
@@ -430,7 +306,7 @@ Akaruna client intake · HTML
         </div>
         <input type="hidden" name="budget" id="budgetInput">
       </section>
- 
+
       <section class="block">
         <div class="block-label"><span class="num">IV.</span><h2>Wedding inspiration</h2></div>
         <p class="gallery-intro">Tap the styles from our past work that feel closest to your vision. Pick as many as you like.</p>
@@ -463,7 +339,7 @@ Akaruna client intake · HTML
         </div>
         <input type="hidden" name="inspiration" id="inspirationInput">
       </section>
- 
+
       <section class="block">
         <div class="block-label"><span class="num">V.</span><h2>Reaching you</h2></div>
         <div class="field-row">
@@ -477,25 +353,25 @@ Akaruna client intake · HTML
           </div>
         </div>
       </section>
- 
+
       <button type="submit" class="submit-btn" id="submitBtn">Share these details</button>
       <p class="note">We'll follow up on WhatsApp or Instagram within 1–2 days.</p>
     </form>
   </div>
 </div>
- 
+
 <div class="success-screen" id="successScreen">
   <div class="eyebrow">Akaruna Design</div>
   <h2>Thank you</h2>
   <p>We've received your details and will reach out on WhatsApp or Instagram shortly to talk through your day.</p>
 </div>
- 
+
 <script>
   // ── Configuration ──────────────────────────────────────────────
   // Paste your deployed Google Apps Script Web App URL here.
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQo5gvo8p3c1gFWXGemwx-BXsCV-9lsA7K9M_puisJ0uJk75rPHMXuS6IlXwaUsVud/exec";
   // ───────────────────────────────────────────────────────────────
- 
+
   const budgetInput = document.getElementById('budgetInput');
   document.querySelectorAll('#budgetOptions input[type=checkbox]').forEach(box => {
     box.addEventListener('change', () => {
@@ -504,7 +380,7 @@ Akaruna client intake · HTML
       budgetInput.value = checked.join(', ');
     });
   });
- 
+
   const selectedStyles = new Set();
   document.querySelectorAll('.style-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -519,23 +395,23 @@ Akaruna client intake · HTML
       document.getElementById('inspirationInput').value = Array.from(selectedStyles).join(', ');
     });
   });
- 
+
   const form = document.getElementById('intakeForm');
   const submitBtn = document.getElementById('submitBtn');
- 
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
- 
+
     if (!budgetInput.value) {
       alert('Please tick at least one budget range.');
       return;
     }
- 
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
- 
+
     const formData = new FormData(form);
- 
+
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
@@ -551,7 +427,6 @@ Akaruna client intake · HTML
     }
   });
 </script>
- 
+
 </body>
 </html>
- 
